@@ -17,9 +17,9 @@ if ! has_service; then
     done
 fi
 
-gamemode_lib_path="${CPAK_ROOTFS:-}/usr/lib/cpak-gamemode/lib64:${CPAK_ROOTFS:-}/usr/lib/cpak-gamemode/lib32"
+gamemode_lib_path="${CPAK_ROOTFS:-}/usr/lib/cpak-gamemode/\$LIB"
 
 exec env \
     LD_LIBRARY_PATH="${gamemode_lib_path}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
-    LD_PRELOAD="libgamemodeauto.so.0${LD_PRELOAD:+:$LD_PRELOAD}" \
+    LD_PRELOAD="${gamemode_lib_path}/libgamemode.so:${gamemode_lib_path}/libgamemodeauto.so.0${LD_PRELOAD:+:$LD_PRELOAD}" \
     "$@"

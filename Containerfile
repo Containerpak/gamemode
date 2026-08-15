@@ -8,9 +8,13 @@ RUN apt-get update && \
         gamemode \
         libgamemode0:i386 \
         libgamemodeauto0:i386 && \
-    mkdir -p /usr/lib/cpak-gamemode/lib32 /usr/lib/cpak-gamemode/lib64 && \
-    cp -a /usr/lib/i386-linux-gnu/libgamemodeauto.so.0* /usr/lib/cpak-gamemode/lib32/ && \
-    cp -a /usr/lib/x86_64-linux-gnu/libgamemodeauto.so.0* /usr/lib/cpak-gamemode/lib64/ && \
+    mkdir -p \
+        /usr/lib/cpak-gamemode/lib/i386-linux-gnu \
+        /usr/lib/cpak-gamemode/lib/x86_64-linux-gnu && \
+    cp -a /usr/lib/i386-linux-gnu/libgamemode.so* /usr/lib/cpak-gamemode/lib/i386-linux-gnu/ && \
+    cp -a /usr/lib/i386-linux-gnu/libgamemodeauto.so.0* /usr/lib/cpak-gamemode/lib/i386-linux-gnu/ && \
+    cp -a /usr/lib/x86_64-linux-gnu/libgamemode.so* /usr/lib/cpak-gamemode/lib/x86_64-linux-gnu/ && \
+    cp -a /usr/lib/x86_64-linux-gnu/libgamemodeauto.so.0* /usr/lib/cpak-gamemode/lib/x86_64-linux-gnu/ && \
     cpak-clean-junk
 
 COPY --chmod=0755 gamemoderun /usr/bin/gamemoderun
