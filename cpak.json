@@ -4,7 +4,7 @@
   "name": "GameMode",
   "description": "Request temporary performance tuning while a game is running.",
   "version": "1.8.2",
-  "image": "ghcr.io/containerpak/gamemode@sha256:0f72b1333c8a13cbdcf63b1b0c27755ec85d43020ffbad24c1c4cd85b81ffdde",
+  "image": "ghcr.io/containerpak/gamemode@sha256:0ee72c1a1b6eba5a6a923a02796c37daf344d0a450c4194a5d664afe6f7aa47c",
   "binaries": [
     "/usr/bin/gamemoderun"
   ],
